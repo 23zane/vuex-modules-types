@@ -29,85 +29,85 @@ export type CommonActionContext<
 } & Omit<ActionContext<Module, Module>, "commit" | "getters" | "rootGetters">;
 
 export abstract class GenericVuexModule<
-	C extends {
-		[key in M]: (...args: any) => any;
+	Module extends {
+		[key in Mutations]: (...args: any) => any;
 	} &
 		{
-			[key in A]: (...args: any) => any;
+			[key in Actions]: (...args: any) => any;
 		} &
 		{
-			[key in G]: any;
+			[key in Getters]: any;
 		},
-	M extends string | number | symbol = keyof C,
-	A extends string | number | symbol = keyof C,
-	G extends string | number | symbol = keyof C
+	Mutations extends string | number | symbol = keyof Module,
+	Actions extends string | number | symbol = keyof Module,
+	Getters extends string | number | symbol = keyof Module
 	> extends VuexModule {
-	context: CommonActionContext<C, M, A, G>;
-	mutations?: MutationTree<C> &
+	context: CommonActionContext<Module, Mutations, Actions, Getters>;
+	mutations?: MutationTree<Module> &
 		{
-			[key in M]: any;
+			[key in Mutations]: any;
 		};
-	actions?: ActionTree<C, C> &
+	actions?: ActionTree<Module, Module> &
 		{
-			[key in A]: any;
+			[key in Actions]: any;
 		};
-	getters?: GetterTree<C, C> &
+	getters?: GetterTree<Module, Module> &
 		{
-			[key in G]: any;
+			[key in Getters]: any;
 		};
-	state: C;
+	state: Module;
 }
 
 export interface GenericVuexModuleInterface<
-	C extends {
-		[key in M]: (...args: any) => any;
+	Module extends {
+		[key in Mutations]: (...args: any) => any;
 	} &
 		{
-			[key in A]: (...args: any) => any;
+			[key in Actions]: (...args: any) => any;
 		} &
 		{
-			[key in G]: any;
+			[key in Getters]: any;
 		},
-	M extends string | number | symbol = keyof C,
-	A extends string | number | symbol = keyof C,
-	G extends string | number | symbol = keyof C
+	Mutations extends string | number | symbol = keyof Module,
+	Actions extends string | number | symbol = keyof Module,
+	Getters extends string | number | symbol = keyof Module
 	> extends VuexModule {
-	context: CommonActionContext<C, M, A, G>;
-	mutations?: MutationTree<C> &
+	context: CommonActionContext<Module, Mutations, Actions, Getters>;
+	mutations?: MutationTree<Module> &
 		{
-			[key in M]: any;
+			[key in Mutations]: any;
 		};
-	actions?: ActionTree<C, C> &
+	actions?: ActionTree<Module, Module> &
 		{
-			[key in A]: any;
+			[key in Actions]: any;
 		};
-	getters?: GetterTree<C, C> &
+	getters?: GetterTree<Module, Module> &
 		{
-			[key in G]: any;
+			[key in Getters]: any;
 		};
 }
 
 export type CommonStore<
-	C extends {
-		[key in M]: (...args: any) => any;
+	Module extends {
+		[key in Mutations]: (...args: any) => any;
 	} &
 		{
-			[key in A]: (...args: any) => any;
+			[key in Actions]: (...args: any) => any;
 		} &
 		{
-			[key in G]: any;
+			[key in Getters]: any;
 		},
-	M extends string | number | symbol = keyof C,
-	A extends string | number | symbol = keyof C,
-	G extends string | number | symbol = keyof C
-	> = Omit<VuexStore<C>, "commit" | "dispatch" | "getters"> & {
-	commit<K extends M>(key: K, payload?: Parameters<C[K]>[0]): ReturnType<C[K]>;
-	dispatch<K extends A, P extends Parameters<C[K]>[0]>(
+	Mutations extends string | number | symbol = keyof Module,
+	Actions extends string | number | symbol = keyof Module,
+	Getters extends string | number | symbol = keyof Module
+	> = Omit<VuexStore<Module>, "commit" | "dispatch" | "getters"> & {
+	commit<K extends Mutations>(key: K, payload?: Parameters<Module[K]>[0]): ReturnType<Module[K]>;
+	dispatch<K extends Actions, P extends Parameters<Module[K]>[0]>(
 		key: K,
 		payload?: P,
 		options?: DispatchOptions
-	): ReturnType<C[K]>;
+	): ReturnType<Module[K]>;
 	getters: {
-		[key in G]: C[key];
+		[key in Getters]: Module[key];
 	};
 };
