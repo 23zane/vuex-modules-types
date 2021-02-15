@@ -1,0 +1,29 @@
+{
+  "name": "@23zane/vuex-modules-types",
+  "version": "1.0.0",
+  "description": "Vuex modules types for type and module completion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "types",
+    "store-types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/23zane/vuex-modules-types.git"
+  },
+  "author": "Dennis Zanetti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/23zane/vuex-modules-types/issues"
+  },
+  "homepage": "https://github.com/23zane/vuex-modules-types#readme",
+  "dependencies": {
+    "vuex": "^3.6.2",
+    "vuex-module-decorators": "^1.0.1"
+  }
+}
