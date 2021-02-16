@@ -1,11 +1,14 @@
 {
   "name": "@23zane/vuex-modules-types",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vuex modules types for type and module completion",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "index.d.ts"
+  ],
   "keywords": [
     "vue",
     "vuex",
