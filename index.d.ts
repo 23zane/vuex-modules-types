@@ -40,9 +40,10 @@ export abstract class GenericVuexModule<
 		},
 	Mutations extends string | number | symbol = keyof Module,
 	Actions extends string | number | symbol = keyof Module,
-	Getters extends string | number | symbol = keyof Module
+	Getters extends string | number | symbol = keyof Module,
+	RootGetters extends Record<string, any> = Record<string, any>
 	> extends VuexModule {
-	context: CommonActionContext<Module, Mutations, Actions, Getters>;
+	context: CommonActionContext<Module, Mutations, Actions, Getters, RootGetters>;
 	mutations?: MutationTree<Module> &
 		{
 			[key in Mutations]: any;
@@ -70,9 +71,10 @@ export interface GenericVuexModuleInterface<
 		},
 	Mutations extends string | number | symbol = keyof Module,
 	Actions extends string | number | symbol = keyof Module,
-	Getters extends string | number | symbol = keyof Module
+	Getters extends string | number | symbol = keyof Module,
+	RootGetters extends Record<string, any> = Record<string, any>
 	> extends VuexModule {
-	context: CommonActionContext<Module, Mutations, Actions, Getters>;
+	context: CommonActionContext<Module, Mutations, Actions, Getters, RootGetters>;
 	mutations?: MutationTree<Module> &
 		{
 			[key in Mutations]: any;
