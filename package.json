@@ -1,13 +1,15 @@
 {
   "name": "@23zane/vuex-modules-types",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Vuex modules types for type and module completion",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "files": [
-    "index.d.ts"
+    "index.d.ts",
+    "dist/**/*.js"
   ],
   "keywords": [
     "vue",
@@ -26,7 +28,10 @@
   },
   "homepage": "https://github.com/23zane/vuex-modules-types#readme",
   "dependencies": {
+    "typescript": "^4.1.5",
     "vuex": "^3.6.2",
-    "vuex-module-decorators": "^1.0.1"
+    "vuex-module-decorators": "^1.0.1",
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12"
   }
 }

@@ -43,7 +43,7 @@ export abstract class GenericVuexModule<
 	Getters extends string | number | symbol = keyof Module,
 	RootGetters extends Record<string, any> = Record<string, any>
 	> extends VuexModule {
-	context: CommonActionContext<Module, Mutations, Actions, Getters, RootGetters>;
+	context!: CommonActionContext<Module, Mutations, Actions, Getters, RootGetters>;
 	mutations?: MutationTree<Module> &
 		{
 			[key in Mutations]: any;
@@ -56,7 +56,7 @@ export abstract class GenericVuexModule<
 		{
 			[key in Getters]: any;
 		};
-	state: Module;
+	state!: Module;
 }
 
 export interface GenericVuexModuleInterface<
