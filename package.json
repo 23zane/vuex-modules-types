@@ -1,6 +1,6 @@
 {
   "name": "@23zane/vuex-modules-types",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vuex modules types for type and module completion",
   "main": "index.js",
   "scripts": {
